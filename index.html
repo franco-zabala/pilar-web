@@ -814,8 +814,16 @@ async function confirmReserva(slotId){
   if(!fresh || fresh.cupos_libres<=0){ toast('Se agotaron los cupos'); closeOverlay(); await loadSlots(); renderSlots(); return; }
   const { error } = await sb.from('reservas').insert({ slot_id:slotId, user_id:CURRENT.id, estado:'confirmado' });
   if(error){ toast('No se pudo reservar, intentá de nuevo'); if(btn){ btn.disabled=false; btn.textContent='Confirmar turno'; } return; }
+  // Mandamos el correo de confirmación con el evento (si falla, NO rompe la reserva).
+  const slot=SLOTS.find(s=>s.id===slotId);
+  if(slot){
+    sb.functions.invoke('send-booking-email', { body:{
+      tipo:slot.tipo, fecha:slot.fecha, hora:slot.hora, duracion:slot.duracion,
+      sede:slot.sede, id:slotId, nombre:CURRENT.name
+    }}).catch(()=>{});
+  }
   closeOverlay(); await loadSlots(); renderSlots();
-  toast('¡Turno reservado!',true);
+  toast('¡Turno reservado! Te enviamos un correo 📩',true);
   openDash();
 }
 
