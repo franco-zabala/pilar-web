@@ -818,7 +818,7 @@ async function confirmReserva(slotId){
   const slot=SLOTS.find(s=>s.id===slotId);
   if(slot){
     sb.functions.invoke('send-booking-email', { body:{
-      tipo:slot.tipo, fecha:slot.fecha, hora:slot.hora, duracion:slot.duracion,
+      accion:'reservado', tipo:slot.tipo, fecha:slot.fecha, hora:slot.hora, duracion:slot.duracion,
       sede:slot.sede, id:slotId, nombre:CURRENT.name
     }}).catch(()=>{});
   }
@@ -971,9 +971,17 @@ function userBooking(b){
   </div>`;
 }
 async function cancelBooking(id){
+  const b=BOOKINGS_BY_ID[id];
   const { error } = await sb.from('reservas').update({ estado:'cancelado' }).eq('id',id);
   if(error){ toast('No se pudo cancelar'); return; }
-  await loadSlots(); renderSlots(); openDash(); toast('Turno cancelado');
+  // Correo de cancelación (si falla, NO rompe la cancelación).
+  if(b){
+    sb.functions.invoke('send-booking-email', { body:{
+      accion:'cancelado', tipo:b.tipo, fecha:b.fecha, hora:b.hora, duracion:b.duracion,
+      sede:b.sede, nombre:CURRENT.name
+    }}).catch(()=>{});
+  }
+  await loadSlots(); renderSlots(); openDash(); toast('Turno cancelado · te enviamos un correo 📩');
 }
 
 /* ============ ADMIN DASHBOARD ============ */
