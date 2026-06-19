@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>María del Pilar Pereyra — Natación Máster & Antropometría</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --celeste:#84C0DC;
+  --azul:#1C9CC9;
+  --navy:#0C2C42;
+  --amarillo:#F6A81C;
+  --naranja:#EE7A1E;
+  --bg:#F4F2EC;
+  --white:#ffffff;
+  --gris:#6b7785;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Lato',-apple-system,Segoe UI,Roboto,sans-serif;
+  --shadow:0 8px 30px rgba(12,44,66,.10);
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--navy);background:var(--bg);line-height:1.6}
+h1,h2,h3{font-family:var(--serif);line-height:1.1;font-weight:900}
+a{color:inherit;text-decoration:none}
+.container{max-width:1120px;margin:0 auto;padding:0 22px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:var(--sans);font-weight:700;
+  padding:12px 22px;border-radius:40px;font-size:15px;transition:.18s;background:var(--azul);color:#fff}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn.amarillo{background:var(--amarillo);color:var(--navy)}
+.btn.naranja{background:var(--naranja)}
+.btn.navy{background:var(--navy)}
+.btn.ghost{background:transparent;border:2px solid var(--navy);color:var(--navy)}
+.btn.sm{padding:8px 16px;font-size:13px}
+.btn.block{width:100%;justify-content:center}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+/* NAV */
+header.nav{position:sticky;top:0;z-index:50;background:rgba(244,242,236,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(12,44,66,.08)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;max-width:1120px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:900;font-size:20px}
+.brand .logo-medal{flex:0 0 auto}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{font-weight:700;font-size:14.5px;color:var(--navy);opacity:.85}
+.nav-links a:hover{opacity:1;color:var(--azul)}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.burger{display:none;background:none;border:none;font-size:26px;cursor:pointer;color:var(--navy)}
+@media(max-width:880px){
+  .nav-links{display:none}
+  .burger{display:block}
+  .nav-links.open{display:flex;position:absolute;top:62px;left:0;right:0;flex-direction:column;background:var(--bg);padding:18px 22px;gap:16px;border-bottom:1px solid rgba(12,44,66,.1)}
+  .nav-actions .btn span.lbl{display:none}
+}
+
+/* HERO */
+.hero{padding:70px 0 60px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.kicker{display:inline-block;background:var(--amarillo);color:var(--navy);font-weight:700;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:30px;margin-bottom:20px}
+.hero h1{font-size:clamp(40px,6vw,72px);letter-spacing:-1px}
+.hero h1 em{font-style:italic;color:var(--azul)}
+.hero p.lead{font-size:18px;color:var(--gris);margin:22px 0 30px;max-width:520px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero-card{background:var(--navy);color:#fff;border-radius:24px;padding:34px;box-shadow:var(--shadow);position:relative}
+.hero-card h3{color:#fff;font-size:24px;margin-bottom:6px}
+.hero-card .swim{font-size:54px;line-height:1;margin-bottom:14px}
+.hero-card ul{list-style:none;margin-top:18px}
+.hero-card ul li{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-top:1px solid rgba(255,255,255,.12);font-size:14.5px}
+.hero-card ul li:first-child{border-top:none}
+.dot{width:9px;height:9px;border-radius:50%;margin-top:7px;flex:0 0 auto}
+.book-card h3{font-size:26px}
+.book-opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:14px;margin-top:14px;cursor:pointer;transition:.18s;font-family:var(--sans);color:#fff}
+.book-opt:hover{background:rgba(255,255,255,.14);transform:translateX(3px)}
+.book-opt .bo-ic{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:23px;flex:0 0 auto}
+.book-opt .bo-txt{display:flex;flex-direction:column;flex:1}
+.book-opt .bo-txt b{font-family:var(--serif);font-size:18px}
+.book-opt .bo-txt small{opacity:.8;font-size:12.5px}
+.book-opt .bo-arrow{font-size:20px;color:var(--amarillo);font-weight:700}
+.book-foot{margin-top:16px;font-size:12.5px;opacity:.75;border-top:1px solid rgba(255,255,255,.12);padding-top:14px}
+
+/* CONOCEME */
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
+.about-photo{position:relative}
+.about-photo-inner{aspect-ratio:1;border-radius:24px;background:linear-gradient(150deg,var(--celeste),var(--azul) 55%,var(--navy));display:flex;align-items:center;justify-content:center;font-size:120px;box-shadow:var(--shadow)}
+.about-badge{position:absolute;bottom:-14px;right:-10px;background:var(--amarillo);color:var(--navy);border-radius:16px;padding:12px 18px;text-align:center;box-shadow:var(--shadow);line-height:1}
+.about-badge b{font-family:var(--serif);font-size:28px;display:block}
+.about-badge span{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.logros{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:480px}
+.logro{background:var(--white);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);border-left:4px solid var(--naranja)}
+.logro b{font-family:var(--serif);font-size:26px;color:var(--azul);display:block}
+.logro span{font-size:13px;color:var(--gris)}
+@media(max-width:760px){.about-grid{grid-template-columns:1fr}.about-photo{max-width:320px;margin:0 auto}}
+
+/* SECTIONS */
+section.block{padding:70px 0}
+.sec-head{max-width:640px;margin-bottom:40px}
+.sec-head .kicker2{color:var(--naranja);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:13px}
+.sec-head h2{font-size:clamp(30px,4vw,46px);margin:10px 0}
+.sec-head p{color:var(--gris);font-size:17px}
+.alt{background:var(--white)}
+/* Bloques oscuros para dar contraste */
+.block.dark{background:var(--navy);color:#dfeaf1;position:relative}
+.block.dark .sec-head h2{color:#fff}
+.block.dark .sec-head p{color:#9fb4c2}
+.block.dark .sec-head .kicker2{color:var(--amarillo)}
+
+/* TURNOS */
+.tabs{display:flex;gap:10px;margin-bottom:26px;flex-wrap:wrap}
+.tab{padding:11px 22px;border-radius:30px;border:2px solid var(--navy);background:transparent;font-weight:700;cursor:pointer;font-family:var(--sans);color:var(--navy);transition:.15s}
+.tab.active{background:var(--navy);color:#fff}
+.slots-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.slot-card{background:var(--white);border:1px solid rgba(12,44,66,.08);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px}
+.alt .slot-card{background:var(--bg)}
+.slot-card .day{font-family:var(--serif);font-weight:700;font-size:21px}
+.slot-card .time{color:var(--azul);font-weight:700;font-size:16px}
+.slot-card .meta{font-size:13.5px;color:var(--gris)}
+.slot-card .tagrow{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
+.tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px;border-radius:20px}
+.tag.ent{background:rgba(28,156,201,.15);color:var(--azul)}
+.tag.ant{background:rgba(238,122,30,.15);color:var(--naranja)}
+.tag.full{background:rgba(12,44,66,.1);color:var(--gris)}
+.cupos{font-size:13px;font-weight:700}
+.slot-card .btn{margin-top:8px}
+
+/* SEDES */
+.sedes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.sede-card{border-radius:var(--radius);overflow:hidden;background:var(--white);box-shadow:var(--shadow);display:flex;flex-direction:column;cursor:pointer;transition:.18s;border:1px solid rgba(12,44,66,.06)}
+.sede-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(12,44,66,.16)}
+.sede-top{height:140px;display:flex;align-items:center;justify-content:center;font-size:60px}
+.sede-body{padding:24px;display:flex;flex-direction:column;flex:1}
+.sede-body h3{font-size:22px;margin-bottom:8px}
+.sede-body p{font-size:14.5px;color:var(--gris);margin-bottom:4px}
+.sede-body .pill{display:inline-block;align-self:flex-start;font-size:11px;font-weight:700;text-transform:uppercase;padding:5px 11px;border-radius:20px;margin-top:14px;background:rgba(246,168,28,.2);color:#9a6608}
+.sede-body .sede-more{margin-top:auto;padding-top:16px;font-size:13px;font-weight:700;color:var(--azul);display:flex;align-items:center;gap:6px}
+@media(max-width:980px){.sedes-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.sedes-grid{grid-template-columns:1fr}}
+/* MAPS en modal sede */
+.sede-modal-top{height:120px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:64px;margin-bottom:18px}
+.map-row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.map-row a{flex:1;min-width:150px;justify-content:center}
+
+/* CONTACTO */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.contact-card{display:flex;gap:16px;align-items:center;background:var(--bg);border-radius:var(--radius);padding:22px;text-decoration:none;transition:.18s;border:1px solid rgba(12,44,66,.06)}
+.alt .contact-card{background:var(--bg)}
+.contact-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.contact-ic{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;flex:0 0 auto;color:#fff}
+.contact-card h4{font-family:var(--serif);font-size:19px;font-weight:700}
+.contact-card span{font-size:14px;color:var(--gris)}
+
+/* COMENTARIOS */
+.comments-wrap{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.comment{background:var(--white);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);margin-bottom:14px}
+.comment .who{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:15px}
+.comment .who b{font-size:15px}
+.comment .who small{color:var(--gris);font-size:12px;margin-left:auto}
+.comment .stars{color:var(--amarillo);font-size:14px;letter-spacing:1px}
+.comment p{font-size:14.5px;margin-top:4px}
+.comment-form textarea{width:100%;border:1px solid rgba(12,44,66,.18);border-radius:12px;padding:14px;font-family:var(--sans);font-size:15px;resize:vertical;min-height:90px}
+.star-input{display:flex;gap:4px;font-size:26px;cursor:pointer;margin:10px 0}
+.star-input span{color:#d8d2c4;transition:.1s}
+.star-input span.on{color:var(--amarillo)}
+
+/* FOOTER */
+footer{background:var(--navy);color:#cfdbe4;padding:46px 0 26px;margin-top:20px}
+footer .f-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:24px}
+footer h4{font-family:var(--serif);color:#fff;font-size:22px;margin-bottom:6px}
+footer a{color:#cfdbe4;display:block;padding:3px 0;font-size:14px}
+footer a:hover{color:var(--amarillo)}
+footer .copy{border-top:1px solid rgba(255,255,255,.12);padding-top:18px;font-size:13px;opacity:.7;text-align:center}
+
+/* MODAL */
+.overlay{position:fixed;inset:0;background:rgba(12,44,66,.6);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:100;padding:18px}
+.overlay.show{display:flex}
+.modal{background:var(--bg);border-radius:20px;max-width:460px;width:100%;padding:32px;box-shadow:0 30px 80px rgba(0,0,0,.4);max-height:92vh;overflow:auto;position:relative}
+.modal.wide{max-width:920px}
+.modal h2{font-size:28px;margin-bottom:6px}
+.modal .sub{color:var(--gris);font-size:14.5px;margin-bottom:20px}
+.close-x{position:absolute;top:16px;right:18px;font-size:24px;cursor:pointer;color:var(--gris);background:none;border:none}
+label.fld{display:block;font-weight:700;font-size:13px;margin:14px 0 5px}
+.input{width:100%;padding:12px 14px;border:1px solid rgba(12,44,66,.2);border-radius:10px;font-family:var(--sans);font-size:15px;background:#fff}
+.input:focus{outline:2px solid var(--azul);border-color:var(--azul)}
+.seg{display:flex;gap:8px;margin-bottom:4px}
+.seg button{flex:1;padding:10px;border:2px solid rgba(12,44,66,.2);background:#fff;border-radius:10px;font-weight:700;cursor:pointer;font-family:var(--sans);color:var(--navy)}
+.seg button.on{border-color:var(--azul);background:rgba(28,156,201,.1);color:var(--azul)}
+.note{font-size:13px;background:rgba(246,168,28,.16);border:1px solid rgba(246,168,28,.4);color:#7a5300;padding:12px 14px;border-radius:10px;margin:14px 0}
+.err{color:#c0392b;font-size:13px;margin-top:8px;font-weight:700}
+.switch-link{text-align:center;font-size:14px;margin-top:18px;color:var(--gris)}
+.switch-link a{color:var(--azul);font-weight:700;cursor:pointer}
+.code-box{display:flex;gap:8px;justify-content:center;margin:18px 0}
+.code-box input{width:46px;height:54px;text-align:center;font-size:24px;font-weight:700;border:2px solid rgba(12,44,66,.2);border-radius:10px;font-family:var(--serif)}
+.code-hint{background:var(--navy);color:#fff;padding:14px;border-radius:12px;text-align:center;font-size:14px;margin-bottom:8px}
+.code-hint b{font-size:26px;letter-spacing:6px;font-family:var(--serif);display:block;margin-top:6px;color:var(--amarillo)}
+
+/* DASHBOARD */
+.dash-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.stat-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+.stat{flex:1;min-width:120px;background:var(--navy);color:#fff;border-radius:14px;padding:16px 18px}
+.stat .n{font-family:var(--serif);font-size:34px;font-weight:900;color:var(--amarillo)}
+.stat .l{font-size:12.5px;opacity:.85}
+table.tbl{width:100%;border-collapse:collapse;font-size:14px}
+table.tbl th{text-align:left;padding:10px;background:rgba(12,44,66,.07);font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+table.tbl td{padding:10px;border-bottom:1px solid rgba(12,44,66,.08)}
+.booking-item{background:#fff;border-radius:12px;padding:16px;box-shadow:var(--shadow);margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.booking-item .bi-info b{font-family:var(--serif);font-size:17px}
+.booking-item .bi-actions{display:flex;gap:8px;flex-wrap:wrap}
+.cal-menu{position:relative;display:inline-block}
+.cal-drop{display:none;position:absolute;right:0;bottom:46px;background:#fff;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.25);overflow:hidden;z-index:20;min-width:180px}
+.cal-drop.show{display:block}
+.cal-drop a{display:flex;gap:10px;align-items:center;padding:11px 16px;font-size:14px;font-weight:600;cursor:pointer}
+.cal-drop a:hover{background:var(--bg)}
+.empty{text-align:center;padding:40px;color:var(--gris)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--navy);color:#fff;padding:14px 24px;border-radius:40px;font-weight:700;font-size:14px;z-index:200;transition:.3s;box-shadow:var(--shadow)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast.ok{background:#1e7d4f}
+
+/* CALENDARIO (mes) */
+.cal-wrap{background:#fff;border-radius:14px;padding:16px;box-shadow:var(--shadow);margin-bottom:20px}
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.cal-head .cal-title{font-family:var(--serif);font-weight:700;font-size:18px;text-transform:capitalize}
+.cal-nav{display:flex;gap:6px}
+.cal-nav button{width:34px;height:34px;border-radius:9px;border:1px solid rgba(12,44,66,.18);background:var(--bg);cursor:pointer;font-size:16px;font-weight:700;color:var(--navy)}
+.cal-nav button:hover{background:var(--azul);color:#fff;border-color:var(--azul)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.cal-dow{font-size:11px;font-weight:700;text-transform:uppercase;color:var(--gris);text-align:center;padding:4px 0}
+.cal-cell{min-height:66px;background:var(--bg);border:1px solid rgba(12,44,66,.07);border-radius:9px;padding:5px;display:flex;flex-direction:column;gap:3px;overflow:hidden}
+.cal-cell.empty{background:transparent;border:none}
+.cal-cell .dnum{font-size:14px;font-weight:700;color:var(--navy);align-self:center;width:27px;height:27px;line-height:27px;text-align:center;border-radius:50%;margin-bottom:3px}
+.cal-cell.today{background:rgba(28,156,201,.10)}
+.cal-cell.today .dnum{background:var(--azul);color:#fff}
+.cal-ev{font-size:10.5px;font-weight:700;border-radius:6px;padding:3px 6px;cursor:pointer;line-height:1.25;text-align:left;border:none;width:100%;color:#fff;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cal-ev.ent{background:var(--azul)}
+.cal-ev.ant{background:var(--naranja)}
+.cal-ev.dot{cursor:default}
+.cal-legend{display:flex;gap:16px;margin-top:12px;font-size:12px;color:var(--gris);flex-wrap:wrap}
+.cal-legend .lg{display:flex;align-items:center;gap:6px}
+.cal-legend .sw{width:12px;height:12px;border-radius:4px}
+/* FICHA DE CONTACTO (alumno) */
+.contact-fiche{background:#fff;border:1px solid rgba(12,44,66,.1);border-radius:12px;padding:14px;margin-bottom:10px;box-shadow:var(--shadow)}
+.contact-fiche .cf-name{font-family:var(--serif);font-weight:700;font-size:16px;margin-bottom:6px}
+.contact-fiche .cf-row{display:flex;gap:8px;align-items:center;font-size:13.5px;margin:3px 0}
+.contact-fiche .cf-row a{color:var(--azul);font-weight:700}
+.maps-btn{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--azul);background:rgba(28,156,201,.1);padding:7px 13px;border-radius:20px;cursor:pointer}
+.maps-btn:hover{background:rgba(28,156,201,.2)}
+@media(max-width:760px){
+  .hero-grid,.contact-grid,.comments-wrap{grid-template-columns:1fr}
+  .hero-card{order:1}
+  .cal-cell{min-height:52px;padding:3px}
+  .cal-ev{font-size:9px;padding:2px 4px}
+  .cal-dow{font-size:9px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#inicio" class="brand">
+      <svg class="logo-medal" width="36" height="36" viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M15 3 L21 22 L15 25 L9 6 Z" fill="var(--naranja)"/>
+        <path d="M33 3 L39 6 L33 25 L27 22 Z" fill="var(--azul)"/>
+        <circle cx="24" cy="32" r="13.5" fill="var(--navy)"/>
+        <circle cx="24" cy="32" r="13.5" fill="none" stroke="var(--amarillo)" stroke-width="2.4"/>
+        <circle cx="24" cy="32" r="9.5" fill="var(--celeste)"/>
+        <path d="M24 25.5 l1.9 3.85 4.25.62 -3.07 3 .72 4.23 -3.79-1.99 -3.79 1.99 .72-4.23 -3.07-3 4.25-.62 Z" fill="var(--amarillo)"/>
+      </svg>
+      Pilar Pereyra
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#conoceme" onclick="closeNav()">Conoceme</a>
+      <a href="#turnos" onclick="closeNav()">Turnos</a>
+      <a href="#sedes" onclick="closeNav()">Sedes</a>
+      <a href="#comentarios" onclick="closeNav()">Comentarios</a>
+      <a href="#contacto" onclick="closeNav()">Contacto</a>
+    </nav>
+    <div class="nav-actions" id="navActions"></div>
+    <button class="burger" onclick="toggleNav()">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div>
+      <span class="kicker">Natación Máster · Antropometría</span>
+      <h1>María del Pilar <em>Pereyra</em></h1>
+      <p class="lead">Entrenadora de natación máster. Reservá tu turno de entrenamiento o tu antropometría online, sumalo a tu calendario y seguí tu progreso desde un solo lugar.</p>
+      <div class="hero-cta">
+        <button class="btn naranja" onclick="goTurnos()">Reservar un turno →</button>
+        <a class="btn ghost" href="#sedes">Ver sedes</a>
+      </div>
+    </div>
+    <div class="hero-card book-card">
+      <h3>Reservá tu turno</h3>
+      <p style="opacity:.85;font-size:14.5px">Elegí qué querés reservar y mirá los horarios disponibles al instante.</p>
+      <button class="book-opt" onclick="quickBook('entrenamiento')">
+        <span class="bo-ic" style="background:var(--azul)">🏊</span>
+        <span class="bo-txt"><b>Entrenamiento</b><small>Natación máster por sede y horario</small></span>
+        <span class="bo-arrow">→</span>
+      </button>
+      <button class="book-opt" onclick="quickBook('antropometria')">
+        <span class="bo-ic" style="background:var(--naranja)">📏</span>
+        <span class="bo-txt"><b>Antropometría</b><small>Medición de composición corporal</small></span>
+        <span class="bo-arrow">→</span>
+      </button>
+      <p class="book-foot">📅 Sumá tu turno a Google, Apple, Outlook o Samsung Calendar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONOCEME -->
+<section class="block" id="conoceme">
+  <div class="container about-grid">
+    <div class="about-photo">
+      <div class="about-photo-inner">🏊‍♀️</div>
+      <div class="about-badge"><b>2×</b><span>Olímpica</span></div>
+    </div>
+    <div>
+      <span class="kicker2">Conoceme</span>
+      <h2 style="font-size:clamp(30px,4vw,46px);margin:10px 0">Soy Pilar Pereyra</h2>
+      <p style="color:var(--gris);font-size:17px;margin-bottom:14px">Nadadora olímpica en dos ediciones de los Juegos, hoy dedico mi experiencia a entrenar nadadores máster y a la evaluación antropométrica. Mi objetivo es que cada persona avance con una planificación seria, técnica cuidada y mediciones objetivas.</p>
+      <p style="color:var(--gris);font-size:17px;margin-bottom:24px">Después de toda una vida dentro del agua, entiendo que el progreso no es solo nadar más: es nadar mejor. Por eso combino el trabajo en pileta con el seguimiento de tu composición corporal.</p>
+      <div class="logros">
+        <div class="logro"><b>2×</b><span>Juegos Olímpicos</span></div>
+        <div class="logro"><b>+20</b><span>Años en el agua</span></div>
+        <div class="logro"><b>+15</b><span>Medallas nacionales</span></div>
+        <div class="logro"><b>ISAK</b><span>Antropometrista certificada</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TURNOS -->
+<section class="block alt" id="turnos">
+  <div class="container">
+    <div class="sec-head">
+      <span class="kicker2">Reservá tu lugar</span>
+      <h2>Turnos disponibles</h2>
+      <p>Elegí entrenamiento o antropometría, seleccioná el horario que más te convenga y confirmá tu reserva. Necesitás una cuenta para reservar.</p>
+    </div>
+    <div class="tabs">
+      <button class="tab active" data-tipo="entrenamiento" onclick="filterSlots('entrenamiento',this)">🏊 Entrenamiento</button>
+      <button class="tab" data-tipo="antropometria" onclick="filterSlots('antropometria',this)">📏 Antropometría</button>
+      <button class="tab" data-tipo="todos" onclick="filterSlots('todos',this)">Ver todos</button>
+    </div>
+    <div class="slots-grid" id="slotsGrid"></div>
+  </div>
+</section>
+
+<!-- SEDES -->
+<section class="block dark" id="sedes">
+  <div class="container">
+    <div class="sec-head">
+      <span class="kicker2">Dónde entrenamos</span>
+      <h2>Sedes</h2>
+      <p>Entrenamientos y antropometrías en distintos puntos. (Sedes de ejemplo, se actualizan más adelante.)</p>
+    </div>
+    <div class="sedes-grid" id="sedesGrid"></div>
+  </div>
+</section>
+
+<!-- COMENTARIOS -->
+<section class="block alt" id="comentarios">
+  <div class="container">
+    <div class="sec-head">
+      <span class="kicker2">Lo que dicen</span>
+      <h2>Comentarios</h2>
+      <p>Experiencias de quienes entrenan con Pilar. Dejá el tuyo (necesitás iniciar sesión).</p>
+    </div>
+    <div class="comments-wrap">
+      <div id="commentsList"></div>
+      <div>
+        <div class="comment-form" style="background:#fff;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)">
+          <h3 style="font-size:21px;margin-bottom:6px">Dejá tu comentario</h3>
+          <div class="star-input" id="starInput">
+            <span data-v="1">★</span><span data-v="2">★</span><span data-v="3">★</span><span data-v="4">★</span><span data-v="5">★</span>
+          </div>
+          <textarea id="commentText" placeholder="Contanos tu experiencia entrenando..."></textarea>
+          <button class="btn block amarillo" style="margin-top:12px" onclick="submitComment()">Publicar comentario</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="block dark" id="contacto">
+  <div class="container">
+    <div class="sec-head">
+      <span class="kicker2">Escribime</span>
+      <h2>Contacto</h2>
+      <p>¿Dudas sobre turnos, planes o antropometrías? Hablemos directo.</p>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-card" id="waLink" target="_blank">
+        <div class="contact-ic" style="background:#25D366">🟢</div>
+        <div><h4>WhatsApp</h4><span>Mensaje directo a Pilar</span></div>
+      </a>
+      <a class="contact-card" id="mailLink">
+        <div class="contact-ic" style="background:var(--azul)">✉️</div>
+        <div><h4>Email</h4><span>pilar.pereyra@natacion.com</span></div>
+      </a>
+      <a class="contact-card" id="igLink" target="_blank">
+        <div class="contact-ic" style="background:linear-gradient(45deg,#f09433,#dc2743,#bc1888)">📷</div>
+        <div><h4>Instagram</h4><span>@pilarpereyra.swim</span></div>
+      </a>
+      <a class="contact-card" onclick="goTurnos()" style="cursor:pointer">
+        <div class="contact-ic" style="background:var(--naranja)">📅</div>
+        <div><h4>Reservar turno</h4><span>Entrenamiento o antropometría</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="f-grid">
+      <div style="max-width:300px">
+        <h4>Pilar Pereyra</h4>
+        <p style="font-size:14px">Entrenadora de natación máster y antropometría. Reservas online y seguimiento personalizado.</p>
+      </div>
+      <div>
+        <h4 style="font-size:18px">Navegación</h4>
+        <a href="#turnos">Turnos</a><a href="#sedes">Sedes</a><a href="#comentarios">Comentarios</a><a href="#contacto">Contacto</a>
+      </div>
+      <div>
+        <h4 style="font-size:18px">Contacto</h4>
+        <a id="fWa" target="_blank">WhatsApp</a><a id="fMail">Email</a><a id="fIg" target="_blank">Instagram</a>
+      </div>
+    </div>
+    <div class="copy">© 2026 María del Pilar Pereyra · Natación máster & antropometría · <a onclick="openPrivacy()" style="cursor:pointer;display:inline;color:#cfdbe4;text-decoration:underline">Política de privacidad</a></div>
+  </div>
+</footer>
+
+<!-- ===== MODALS ===== -->
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- Librería oficial de Supabase (base de datos + login). Se baja de un CDN, no hay que instalar nada. -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* ============ CONFIG ============
+   👉 PASO IMPORTANTE: pegá acá los 2 datos de tu proyecto de Supabase.
+   Los sacás de: Supabase → tu proyecto → Project Settings → API.
+   - SUPABASE_URL  = "Project URL"
+   - SUPABASE_ANON_KEY = la clave "anon public"
+   (Son datos públicos, está OK que estén en el HTML.)                        */
+const SUPABASE_URL      = "https://wcpbsmgqwmcvummxqltz.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndjcGJzbWdxd21jdnVtbXhxbHR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE3ODM2MDMsImV4cCI6MjA5NzM1OTYwM30.KH80NHihPHDankPXea8-h0g3DUZY1zlXRkiA8xD-_1Y";
+
+const CFG = {
+  whatsapp: "5491100000000",          // editar: número con código país, sin +
+  email: "pilar.pereyra@natacion.com",// editar
+  instagram: "pilarpereyra.swim"      // editar (sin @)
+};
+
+/* Cliente de Supabase: por acá pasan todas las consultas a la base y el login. */
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+if(SUPABASE_URL.includes("TU-PROYECTO")){
+  console.warn("⚠️ Falta configurar SUPABASE_URL y SUPABASE_ANON_KEY en index.html.");
+}
+
+/* ============ ESTADO EN MEMORIA ============
+   Cargamos sedes, turnos y el usuario actual una vez, y los guardamos acá
+   para que la web los muestre sin volver a pedirlos en cada clic.            */
+let SEDES = [];          // sedes normalizadas para mostrar
+let SEDES_BY_ID = {};    // id de sede -> sede (para resolver el nombre en los turnos)
+let SLOTS = [];          // turnos con cupos libres en vivo
+let CURRENT = null;      // usuario logueado: {id, name, email, role}
+let BOOKINGS_BY_ID = {}; // reservas mostradas en el panel (para "agregar al calendario")
+let ADMIN = {res:[], profs:[], slots:[]}; // datos cacheados del panel admin
+
+function isAdmin(){ return CURRENT && CURRENT.role === 'admin'; }
+
+/* Lee la sesión activa de Supabase y trae el perfil (nombre + rol) de la base. */
+async function refreshCurrent(){
+  const { data:{ session } } = await sb.auth.getSession();
+  if(!session){ CURRENT = null; return; }
+  const { data:prof } = await sb.from('profiles')
+    .select('nombre,rol,email').eq('id', session.user.id).maybeSingle();
+  CURRENT = {
+    id:    session.user.id,
+    name:  (prof && prof.nombre) || session.user.email,
+    email: session.user.email,
+    role:  (prof && prof.rol) || 'user'
+  };
+}
+
+/* Traduce los mensajes de error de Supabase (en inglés) a algo legible. */
+function traducirError(m){
+  m = m || '';
+  if(/already registered|already exists|already been registered/i.test(m))
+    return 'Ya existe una cuenta con ese email. Iniciá sesión.';
+  if(/password/i.test(m)) return 'La contraseña debe tener al menos 6 caracteres.';
+  if(/confirm/i.test(m))  return 'Tenés que confirmar tu correo. Revisá tu email.';
+  return 'No se pudo completar. Revisá los datos e intentá de nuevo.';
+}
+
+/* ============ CARGA DE DATOS ============ */
+async function loadSedes(){
+  const { data } = await sb.from('sedes').select('*');
+  SEDES = (data||[]).map(s=>({
+    id:s.id, nombre:s.nombre, dir:s.direccion, barrio:s.barrio, icon:s.icono,
+    tipo: s.tipo==='antropometria' ? 'Antropometría' : 'Entrenamiento'
+  }));
+  SEDES_BY_ID = {};
+  SEDES.forEach(s=> SEDES_BY_ID[s.id]=s);
+}
+async function loadSlots(){
+  const { data } = await sb.from('slots_disponibles').select('*')
+    .order('fecha',{ascending:true}).order('hora',{ascending:true});
+  SLOTS = (data||[]).map(s=>({
+    id:s.id, tipo:s.tipo, fecha:s.fecha, hora:(s.hora||'').slice(0,5),
+    duracion:s.duracion_min, cupos:s.cupos, free:s.cupos_libres,
+    sede:(SEDES_BY_ID[s.sede_id] && SEDES_BY_ID[s.sede_id].nombre) || '',
+    dia: weekdayName(s.fecha)
+  }));
+}
+
+/* ============ INIT UI ============ */
+function initContacts(){
+  const wa = `https://wa.me/${CFG.whatsapp}?text=${encodeURIComponent('Hola Pilar! Quería consultar sobre los turnos.')}`;
+  const mail = `mailto:${CFG.email}?subject=${encodeURIComponent('Consulta de turnos')}`;
+  const ig = `https://instagram.com/${CFG.instagram}`;
+  waLink.href=wa; fWa.href=wa;
+  mailLink.href=mail; fMail.href=mail;
+  igLink.href=ig; fIg.href=ig;
+}
+const SEDE_COLORS=['var(--celeste)','var(--azul)','var(--amarillo)','var(--naranja)'];
+function renderSedes(){
+  sedesGrid.innerHTML = SEDES.map((s,i)=>`
+    <div class="sede-card" onclick="openSede(${i})">
+      <div class="sede-top" style="background:${SEDE_COLORS[i%4]}">${s.icon}</div>
+      <div class="sede-body">
+        <h3>${s.nombre}</h3>
+        <p>📍 ${s.dir}</p>
+        <p>${s.barrio}</p>
+        <span class="pill">${s.tipo}</span>
+        <span class="sede-more">Ver ubicación →</span>
+      </div>
+    </div>`).join('');
+}
+function openSede(i){
+  const s=SEDES[i];
+  const q=encodeURIComponent(`${s.nombre}, ${s.dir}, ${s.barrio}`);
+  const gmaps=`https://www.google.com/maps/search/?api=1&query=${q}`;
+  const amaps=`https://maps.apple.com/?q=${q}`;
+  openOverlay(`
+    <button class="close-x" onclick="closeOverlay()">×</button>
+    <div class="sede-modal-top" style="background:${SEDE_COLORS[i%4]}">${s.icon}</div>
+    <span class="pill" style="display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;padding:5px 11px;border-radius:20px;background:rgba(246,168,28,.2);color:#9a6608">${s.tipo}</span>
+    <h2 style="margin-top:10px">${esc(s.nombre)}</h2>
+    <p class="sub" style="margin-bottom:4px">📍 ${esc(s.dir)}</p>
+    <p class="sub">${esc(s.barrio)}</p>
+    <div class="map-row">
+      <a class="btn azul" style="background:var(--azul)" href="${gmaps}" target="_blank">🗺️ Abrir en Google Maps</a>
+      <a class="btn navy" href="${amaps}" target="_blank">🍎 Abrir en Apple Maps</a>
+    </div>
+  `);
+}
+function openPrivacy(){
+  openOverlay(`
+    <button class="close-x" onclick="closeOverlay()">×</button>
+    <h2>Política de privacidad</h2>
+    <p class="sub">Última actualización: junio de 2026.</p>
+    <div style="font-size:14px;line-height:1.65;max-height:62vh;overflow:auto">
+      <p style="margin-bottom:12px">Este sitio es la web de reservas de turnos de <b>María del Pilar Pereyra</b>
+      (natación máster y antropometría). Acá te contamos qué datos pedimos y cómo los usamos.</p>
+
+      <h3 style="font-size:17px;margin:14px 0 6px">Qué datos recopilamos</h3>
+      <p style="margin-bottom:12px">Cuando creás una cuenta guardamos tu <b>nombre</b>, tu <b>email</b> y,
+      si lo cargás, tu <b>teléfono</b>. Cuando reservás un turno, guardamos esa reserva.
+      Si dejás un comentario, se publica con tu nombre.</p>
+
+      <h3 style="font-size:17px;margin:14px 0 6px">Para qué los usamos</h3>
+      <p style="margin-bottom:12px">Usamos tus datos únicamente para gestionar tus turnos, identificarte
+      al iniciar sesión y permitir que Pilar te contacte por temas de la clase o la medición.
+      <b>No vendemos ni cedemos tus datos</b> a terceros con fines comerciales.</p>
+
+      <h3 style="font-size:17px;margin:14px 0 6px">Dónde se guardan</h3>
+      <p style="margin-bottom:12px">Los datos se almacenan de forma segura en <b>Supabase</b>, el proveedor
+      de base de datos y autenticación del sitio. La conexión es cifrada (HTTPS).</p>
+
+      <h3 style="font-size:17px;margin:14px 0 6px">Tus derechos</h3>
+      <p style="margin-bottom:12px">Podés pedir acceder, corregir o eliminar tus datos cuando quieras.
+      Para hacerlo, escribinos a <b>${esc(CFG.email)}</b>. También podés cancelar tus reservas
+      desde tu panel de usuario.</p>
+
+      <h3 style="font-size:17px;margin:14px 0 6px">Límites del servicio</h3>
+      <p style="margin-bottom:12px">Reservar un turno no garantiza el cupo si hay un error de sistema o
+      sobreventa; ante cualquier duda, Pilar confirmará tu lugar. El sitio se ofrece "tal cual",
+      sin garantías de disponibilidad permanente.</p>
+
+      <p style="margin-bottom:4px;color:var(--gris)">En cumplimiento de la Ley 25.326 de Protección de
+      los Datos Personales de la República Argentina.</p>
+    </div>
+    <button class="btn block navy" style="margin-top:16px" onclick="closeOverlay()">Entendido</button>
+  `);
+}
+let slotFilter='entrenamiento';
+function renderSlots(){
+  // Solo turnos con cupo disponible: cuando se llena, desaparece de la web pública.
+  const list = SLOTS.filter(s=> (slotFilter==='todos' ? true : s.tipo===slotFilter) && s.free>0);
+  slotsGrid.innerHTML = list.map(s=>{
+    const free = s.free;
+    const full = free<=0;
+    const tagCls = s.tipo==='antropometria'?'ant':'ent';
+    const tagTxt = s.tipo==='antropometria'?'Antropometría':'Entrenamiento';
+    return `<div class="slot-card">
+      <div class="tagrow"><span class="tag ${tagCls}">${tagTxt}</span>${full?'<span class="tag full">Completo</span>':''}</div>
+      <div class="day">${s.dia} ${fmtDate(s.fecha)}</div>
+      <div class="time">🕐 ${s.hora} hs · ${s.duracion} min</div>
+      <div class="meta">📍 ${s.sede}</div>
+      <div class="cupos" style="color:${full?'var(--gris)':'var(--azul)'}">${full?'Sin cupos':free+' cupo'+(free>1?'s':'')+' disponible'+(free>1?'s':'')}</div>
+      <button class="btn ${full?'':'naranja'} block" ${full?'disabled':''} onclick="reservar('${s.id}')">${full?'Completo':'Reservar'}</button>
+    </div>`;
+  }).join('') || '<p class="empty">No hay turnos para esta categoría.</p>';
+}
+function filterSlots(t,el){ slotFilter=t; document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active')); el.classList.add('active'); renderSlots(); }
+async function renderComments(){
+  const { data } = await sb.from('comentarios')
+    .select('nombre,estrellas,texto,created_at').order('created_at',{ascending:false});
+  const c = data||[];
+  const colors=['var(--azul)','var(--naranja)','var(--amarillo)','var(--celeste)','var(--navy)'];
+  commentsList.innerHTML = c.map((x,i)=>`
+    <div class="comment">
+      <div class="who">
+        <div class="avatar" style="background:${colors[i%5]}">${(x.nombre||'?').charAt(0).toUpperCase()}</div>
+        <b>${esc(x.nombre)}</b><small>${fmtDate((x.created_at||'').slice(0,10))}</small>
+      </div>
+      <div class="stars">${'★'.repeat(x.estrellas)}${'☆'.repeat(5-x.estrellas)}</div>
+      <p>${esc(x.texto)}</p>
+    </div>`).join('') || '<p class="empty">Todavía no hay comentarios. ¡Sé el primero!</p>';
+}
+function renderNav(){
+  const u=CURRENT;
+  if(!u){
+    navActions.innerHTML = `<button class="btn ghost sm" onclick="openLogin()">Ingresar</button>
+      <button class="btn sm naranja" onclick="openRegister()"><span class="lbl">Crear cuenta</span>👤</button>`;
+  } else if(u.role==='admin'){
+    navActions.innerHTML = `<button class="btn sm navy" onclick="openAdmin()">📊 <span class="lbl">Panel admin</span></button>
+      <button class="btn ghost sm" onclick="logout()">Salir</button>`;
+  } else {
+    navActions.innerHTML = `<button class="btn sm" onclick="openDash()">👤 <span class="lbl">${esc(u.name.split(' ')[0])}</span></button>
+      <button class="btn ghost sm" onclick="logout()">Salir</button>`;
+  }
+}
+
+/* ============ HELPERS ============ */
+function weekdayName(fecha){
+  if(!fecha) return '';
+  const [y,m,d]=fecha.split('-').map(Number);
+  const dt=new Date(y,m-1,d);
+  return ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'][dt.getDay()];
+}
+function fmtDate(d){ if(!d) return ''; const p=d.split('-'); return p.length===3? `${p[2]}/${p[1]}`:d; }
+function fmtDateLong(d){ const [y,m,dd]=d.split('-'); const ms=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic']; return `${dd} ${ms[+m-1]} ${y}`; }
+function esc(s){ return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])) }
+function toast(msg,ok){ const t=document.getElementById('toast'); t.textContent=msg; t.className='toast show'+(ok?' ok':''); setTimeout(()=>t.className='toast',2600); }
+function openOverlay(html,wide){ modal.className='modal'+(wide?' wide':''); modal.innerHTML=html; overlay.classList.add('show'); }
+function closeOverlay(){ overlay.classList.remove('show') }
+overlay.addEventListener('click',e=>{ if(e.target===overlay) closeOverlay() });
+function toggleNav(){ navLinks.classList.toggle('open') }
+function closeNav(){ navLinks.classList.remove('open') }
+function goTurnos(){ document.getElementById('turnos').scrollIntoView(); }
+function quickBook(tipo){
+  slotFilter=tipo;
+  document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active', b.dataset.tipo===tipo));
+  renderSlots();
+  document.getElementById('turnos').scrollIntoView();
+}
+
+/* ============ AUTH: REGISTER ============ */
+function openRegister(){
+  openOverlay(`
+    <button class="close-x" onclick="closeOverlay()">×</button>
+    <h2>Crear cuenta</h2>
+    <p class="sub">Registrate para reservar turnos y ver tu panel.</p>
+    <label class="fld">Nombre y apellido</label>
+    <input class="input" id="rName" placeholder="Ej: Juan Pérez">
+    <label class="fld">Email</label>
+    <input class="input" id="rContact" type="email" placeholder="tucorreo@mail.com">
+    <label class="fld">Teléfono <span style="font-weight:400;color:var(--gris)">(opcional)</span></label>
+    <input class="input" id="rPhone" type="tel" placeholder="+54 9 11 1234 5678">
+    <label class="fld">Contraseña</label>
+    <input class="input" id="rPass" type="password" placeholder="Mínimo 6 caracteres">
+    <div class="note">Te vamos a enviar un correo para confirmar tu cuenta.</div>
+    <div class="err" id="rErr" style="display:none"></div>
+    <button class="btn block naranja" id="rBtn" style="margin-top:8px" onclick="doRegister()">Crear cuenta</button>
+    <div class="switch-link">¿Ya tenés cuenta? <a onclick="openLogin()">Ingresá</a></div>
+  `);
+}
+function showErr(el,m){ el.textContent=m; el.style.display='block' }
+async function doRegister(){
+  const name=rName.value.trim(), email=rContact.value.trim(), pass=rPass.value;
+  const phone=document.getElementById('rPhone').value.trim();
+  const err=rErr;
+  if(!name){ return showErr(err,'Ingresá tu nombre.') }
+  if(!/^[^@]+@[^@]+\.[^@]+$/.test(email)){ return showErr(err,'Email inválido.') }
+  if(pass.length<6){ return showErr(err,'La contraseña debe tener al menos 6 caracteres.') }
+  const btn=document.getElementById('rBtn'); btn.disabled=true; btn.textContent='Creando...';
+  // nombre y telefono van en options.data → el trigger de la base los guarda en el perfil.
+  const { error } = await sb.auth.signUp({
+    email, password:pass, options:{ data:{ nombre:name, telefono:phone } }
+  });
+  if(error){ btn.disabled=false; btn.textContent='Crear cuenta'; return showErr(err, traducirError(error.message)); }
+  showCheckEmail(email);
+}
+function showCheckEmail(email){
+  openOverlay(`
+    <button class="close-x" onclick="closeOverlay()">×</button>
+    <h2>📧 Revisá tu correo</h2>
+    <p class="sub">Te enviamos un email a <b>${esc(email)}</b> con un link para confirmar tu cuenta.</p>
+    <div class="note">Hacé clic en el link del correo. Después volvé acá e iniciá sesión.
+      Si no lo ves, revisá la carpeta de spam/correo no deseado.</div>
+    <button class="btn block naranja" style="margin-top:8px" onclick="openLogin()">Ir a iniciar sesión</button>
+  `);
+}
+
+/* ============ AUTH: LOGIN ============ */
+function openLogin(){
+  openOverlay(`
+    <button class="close-x" onclick="closeOverlay()">×</button>
+    <h2>Ingresar</h2>
+    <p class="sub">Accedé con tu email y contraseña.</p>
+    <label class="fld">Email</label>
+    <input class="input" id="lContact" type="email" placeholder="tucorreo@mail.com">
+    <label class="fld">Contraseña</label>
+    <input class="input" id="lPass" type="password" placeholder="Tu contraseña">
+    <div class="err" id="lErr" style="display:none"></div>
+    <button class="btn block naranja" id="lBtn" style="margin-top:18px" onclick="doLogin()">Ingresar</button>
+    <div class="switch-link">¿No tenés cuenta? <a onclick="openRegister()">Registrate</a></div>
+  `);
+}
+async function doLogin(){
+  const email=lContact.value.trim(), p=lPass.value;
+  const btn=document.getElementById('lBtn'); btn.disabled=true; btn.textContent='Ingresando...';
+  const { error } = await sb.auth.signInWithPassword({ email, password:p });
+  if(error){
+    btn.disabled=false; btn.textContent='Ingresar';
+    if(/confirm/i.test(error.message))
+      return showErr(lErr,'Tenés que confirmar tu correo primero. Revisá tu email.');
+    return showErr(lErr,'Datos incorrectos o cuenta inexistente.');
+  }
+  await refreshCurrent();
+  closeOverlay(); renderNav(); await loadSlots(); renderSlots();
+  // El rol viene del perfil en la base: admin → panel de Pilar; resto → portal de usuario.
+  if(isAdmin()){ openAdmin(); }
+  else { toast('¡Hola de nuevo, '+CURRENT.name.split(' ')[0]+'!',true); openDash(); }
+}
+async function logout(){
+  await sb.auth.signOut();
+  CURRENT=null; renderNav(); await loadSlots(); renderSlots();
+  toast('Sesión cerrada'); closeOverlay();
+}
+
+/* ============ RESERVAR ============ */
+async function reservar(slotId){
+  if(!CURRENT){ toast('Iniciá sesión para reservar'); openLogin(); return; }
+  if(CURRENT.role==='admin'){ toast('Usá una cuenta de usuario para reservar'); return; }
+  const slot=SLOTS.find(s=>s.id===slotId);
+  if(!slot){ toast('Turno no disponible'); return; }
+  // ¿Ya tiene este turno reservado?
+  const { data:mine } = await sb.from('reservas').select('id')
+    .eq('slot_id',slotId).eq('user_id',CURRENT.id).eq('estado','confirmado').maybeSingle();
+  if(mine){ toast('Ya tenés este turno reservado'); return; }
+  const tipoTxt = slot.tipo==='antropometria'?'Antropometría':'Entrenamiento';
+  openOverlay(`
+    <button class="close-x" onclick="closeOverlay()">×</button>
+    <h2>Confirmar reserva</h2>
+    <p class="sub">Revisá los datos de tu turno.</p>
+    <div style="background:#fff;border-radius:14px;padding:18px;box-shadow:var(--shadow)">
+      <div class="tag ${slot.tipo==='antropometria'?'ant':'ent'}" style="display:inline-block;margin-bottom:8px">${tipoTxt}</div>
+      <div style="font-family:var(--serif);font-size:22px;font-weight:700">${slot.dia} ${fmtDateLong(slot.fecha)}</div>
+      <p style="margin-top:6px">🕐 <b>${slot.hora} hs</b> · ${slot.duracion} min</p>
+      <p>📍 ${slot.sede}</p>
+    </div>
+    <button class="btn block naranja" id="cResBtn" style="margin-top:18px" onclick="confirmReserva('${slotId}')">Confirmar turno</button>
+  `);
+}
+async function confirmReserva(slotId){
+  const btn=document.getElementById('cResBtn'); if(btn){ btn.disabled=true; btn.textContent='Confirmando...'; }
+  // Re-chequeamos cupos en vivo justo antes de reservar.
+  const { data:fresh } = await sb.from('slots_disponibles').select('cupos_libres').eq('id',slotId).maybeSingle();
+  if(!fresh || fresh.cupos_libres<=0){ toast('Se agotaron los cupos'); closeOverlay(); await loadSlots(); renderSlots(); return; }
+  const { error } = await sb.from('reservas').insert({ slot_id:slotId, user_id:CURRENT.id, estado:'confirmado' });
+  if(error){ toast('No se pudo reservar, intentá de nuevo'); if(btn){ btn.disabled=false; btn.textContent='Confirmar turno'; } return; }
+  closeOverlay(); await loadSlots(); renderSlots();
+  toast('¡Turno reservado!',true);
+  openDash();
+}
+
+/* ============ CALENDARIO ============ */
+function slotDates(b){
+  const [y,m,d]=b.fecha.split('-').map(Number);
+  const [hh,mm]=b.hora.split(':').map(Number);
+  const start=new Date(y,m-1,d,hh,mm);
+  const end=new Date(start.getTime()+b.duracion*60000);
+  const z=n=>String(n).padStart(2,'0');
+  const fmt=dt=>`${dt.getFullYear()}${z(dt.getMonth()+1)}${z(dt.getDate())}T${z(dt.getHours())}${z(dt.getMinutes())}00`;
+  return {start,end,sFmt:fmt(start),eFmt:fmt(end)};
+}
+// Nombre del evento: "Entrenamiento con Pily Pereyra" / "Antropometría con Pily Pereyra".
+function calTitle(b){ return (b.tipo==='antropometria'?'Antropometría':'Entrenamiento')+' con Pily Pereyra'; }
+function icsContent(b){
+  const d=slotDates(b);
+  return ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//PilarPereyra//Turnos//ES','CALSCALE:GREGORIAN','METHOD:PUBLISH','BEGIN:VEVENT',
+    'UID:'+b.id+'@pilarpereyra','DTSTAMP:'+d.sFmt,'DTSTART:'+d.sFmt,'DTEND:'+d.eFmt,
+    'SUMMARY:'+calTitle(b),
+    'LOCATION:'+b.sede,
+    'DESCRIPTION:Turno con Pily Pereyra. Sede: '+b.sede+'. Duración: '+b.duracion+' min.',
+    'BEGIN:VALARM','TRIGGER:-PT2H','ACTION:DISPLAY','DESCRIPTION:Recordatorio de turno','END:VALARM',
+    'END:VEVENT','END:VCALENDAR'].join('\r\n');
+}
+// Un solo botón: descarga el evento y el dispositivo lo abre con el calendario por defecto.
+function downloadICS(id){
+  const b=BOOKINGS_BY_ID[id];
+  if(!b){ toast('No se encontró el turno'); return; }
+  const blob=new Blob([icsContent(b)],{type:'text/calendar;charset=utf-8'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='turno-pilar-'+b.fecha+'.ics'; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  toast('Abriendo tu calendario…',true);
+}
+function addToCalendarBtn(b){
+  return `<button class="btn sm amarillo" onclick="downloadICS('${b.id}')">📅 Agregar a mi calendario</button>`;
+}
+// Link a Google Maps con la dirección de la sede (sin necesidad de API key).
+function mapsUrl(sedeNombre){
+  const sede=SEDES.find(s=>s.nombre===sedeNombre);
+  const q=encodeURIComponent(sede ? `${sede.nombre}, ${sede.dir}, ${sede.barrio}` : sedeNombre);
+  return `https://www.google.com/maps/search/?api=1&query=${q}`;
+}
+function mapsBtn(sedeNombre){
+  return `<a class="maps-btn" href="${mapsUrl(sedeNombre)}" target="_blank">📍 Cómo llegar</a>`;
+}
+
+/* ============ CALENDARIO MENSUAL (componente reutilizable) ============ */
+const MESES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+const DOW=['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'];
+let userCalYM=null, adminCalYM=null;   // mes mostrado en cada panel {y, m}
+
+function ymNow(){ const d=new Date(); return {y:d.getFullYear(), m:d.getMonth()}; }
+function ymShift(ym,delta){
+  let y=ym.y, m=ym.m+delta;
+  while(m<0){ m+=12; y--; } while(m>11){ m-=12; y++; }
+  return {y,m};
+}
+function todayStr(){ const d=new Date(); const z=n=>String(n).padStart(2,'0'); return `${d.getFullYear()}-${z(d.getMonth()+1)}-${z(d.getDate())}`; }
+// eventsByDate: { 'YYYY-MM-DD': [ {tipo, label, title, onclick} ] }
+function monthCalendarHTML(ym, eventsByDate, navFn){
+  const first=new Date(ym.y, ym.m, 1);
+  const startDow=(first.getDay()+6)%7;                 // 0 = Lunes
+  const daysInMonth=new Date(ym.y, ym.m+1, 0).getDate();
+  const z=n=>String(n).padStart(2,'0');
+  let cells='';
+  for(let i=0;i<startDow;i++) cells+='<div class="cal-cell empty"></div>';
+  for(let day=1; day<=daysInMonth; day++){
+    const ds=`${ym.y}-${z(ym.m+1)}-${z(day)}`;
+    const evs=eventsByDate[ds]||[];
+    cells+=`<div class="cal-cell${ds===todayStr()?' today':''}">
+      <span class="dnum">${day}</span>
+      ${evs.map(e=>`<button class="cal-ev ${e.tipo==='antropometria'?'ant':'ent'}${e.onclick?'':' dot'}" ${e.onclick?`onclick="${e.onclick}"`:''} title="${esc(e.title||e.label)}">${esc(e.label)}</button>`).join('')}
+    </div>`;
+  }
+  return `<div class="cal-wrap">
+    <div class="cal-head">
+      <div class="cal-title">${MESES[ym.m]} ${ym.y}</div>
+      <div class="cal-nav"><button onclick="${navFn}(-1)">‹</button><button onclick="${navFn}(1)">›</button></div>
+    </div>
+    <div class="cal-grid">
+      ${DOW.map(d=>`<div class="cal-dow">${d}</div>`).join('')}
+      ${cells}
+    </div>
+    <div class="cal-legend">
+      <span class="lg"><span class="sw" style="background:var(--azul)"></span>Entrenamiento</span>
+      <span class="lg"><span class="sw" style="background:var(--naranja)"></span>Antropometría</span>
+    </div>
+  </div>`;
+}
+
+/* ============ USER DASHBOARD ============ */
+let USER_UPCOMING=[];
+async function openDash(){
+  const u=CURRENT; if(!u) return openLogin();
+  const { data } = await sb.from('reservas')
+    .select('id, slots(tipo,fecha,hora,duracion_min, sedes(nombre))')
+    .eq('user_id',u.id).eq('estado','confirmado');
+  USER_UPCOMING=(data||[]).map(r=>({
+    id:r.id, tipo:r.slots.tipo, fecha:r.slots.fecha, hora:(r.slots.hora||'').slice(0,5),
+    duracion:r.slots.duracion_min, sede:(r.slots.sedes&&r.slots.sedes.nombre)||'',
+    dia:weekdayName(r.slots.fecha)
+  })).sort((a,b)=>(a.fecha+a.hora).localeCompare(b.fecha+b.hora));
+  // Guardamos las reservas en memoria para el botón "agregar al calendario".
+  BOOKINGS_BY_ID={}; USER_UPCOMING.forEach(b=> BOOKINGS_BY_ID[b.id]=b);
+  userCalYM = ymNow();
+  renderDash();
+}
+function userCalNav(delta){ userCalYM=ymShift(userCalYM,delta); renderDash(); }
+function renderDash(){
+  const u=CURRENT; const upcoming=USER_UPCOMING;
+  const ent=upcoming.filter(b=>b.tipo==='entrenamiento').length;
+  const ant=upcoming.filter(b=>b.tipo==='antropometria').length;
+  const evByDate={};
+  upcoming.forEach(b=>{ (evByDate[b.fecha]=evByDate[b.fecha]||[]).push({tipo:b.tipo, label:`${b.hora} ${b.sede}`, title:`${b.hora} · ${b.sede}`}); });
+  openOverlay(`
+    <button class="close-x" onclick="closeOverlay()">×</button>
+    <h2>Hola, ${esc(u.name.split(' ')[0])} 👋</h2>
+    <p class="sub">Tus próximos turnos y reservas.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="n">${upcoming.length}</div><div class="l">Turnos próximos</div></div>
+      <div class="stat"><div class="n">${ent}</div><div class="l">Entrenamientos</div></div>
+      <div class="stat"><div class="n">${ant}</div><div class="l">Antropometrías</div></div>
+    </div>
+    ${monthCalendarHTML(userCalYM, evByDate, 'userCalNav')}
+    <h3 style="font-size:18px;margin:18px 0 10px">Tus reservas</h3>
+    <div id="dashList">${ upcoming.length? upcoming.map(b=>userBooking(b)).join('') :
+      '<div class="empty">No tenés turnos reservados.<br><button class="btn naranja sm" style="margin-top:12px" onclick="closeOverlay();goTurnos()">Reservar ahora</button></div>'}</div>
+  `,true);
+}
+function userBooking(b){
+  return `<div class="booking-item">
+    <div class="bi-info">
+      <div class="tag ${b.tipo==='antropometria'?'ant':'ent'}" style="display:inline-block;margin-bottom:4px">${b.tipo==='antropometria'?'Antropometría':'Entrenamiento'}</div>
+      <b style="display:block">${b.dia} ${fmtDateLong(b.fecha)} · ${b.hora} hs</b>
+      <span style="font-size:13px;color:var(--gris)">📍 ${esc(b.sede)} · ${b.duracion} min</span>
+      <div style="margin-top:8px">${mapsBtn(b.sede)}</div>
+    </div>
+    <div class="bi-actions">
+      ${addToCalendarBtn(b)}
+      <button class="btn sm ghost" onclick="cancelBooking('${b.id}')">Cancelar</button>
+    </div>
+  </div>`;
+}
+async function cancelBooking(id){
+  const { error } = await sb.from('reservas').update({ estado:'cancelado' }).eq('id',id);
+  if(error){ toast('No se pudo cancelar'); return; }
+  await loadSlots(); renderSlots(); openDash(); toast('Turno cancelado');
+}
+
+/* ============ ADMIN DASHBOARD ============ */
+async function reloadAdminData(){
+  // Cargamos todo lo que ve Pilar (la seguridad RLS deja que el admin vea todo).
+  const [resR, profR, slotR] = await Promise.all([
+    sb.from('reservas')
+      .select('id, slot_id, user_id, profiles(nombre,email,telefono), slots(tipo,fecha,hora, sedes(nombre))')
+      .eq('estado','confirmado'),
+    sb.from('profiles').select('id,nombre,email,telefono,rol'),
+    sb.from('slots_disponibles').select('*')
+  ]);
+  ADMIN = { res: resR.data||[], profs: profR.data||[], slots: slotR.data||[] };
+}
+async function openAdmin(){
+  if(!isAdmin()) return openLogin();
+  await reloadAdminData();
+  adminCalYM = ymNow();
+  renderAdmin('turnos');
+}
+function adminCalNav(delta){ adminCalYM=ymShift(adminCalYM,delta); renderAdmin('turnos'); }
+function renderAdmin(tab){
+  const bookings = ADMIN.res.map(r=>({
+    user_id:r.user_id, slot_id:r.slot_id,
+    tipo:r.slots?r.slots.tipo:'', fecha:r.slots?r.slots.fecha:''
+  }));
+  const users = ADMIN.profs.filter(p=>p.rol!=='admin');
+  const slots = ADMIN.slots.slice().sort((a,b)=>((a.fecha+a.hora)+'').localeCompare((b.fecha+b.hora)+''));
+  const ent=bookings.filter(b=>b.tipo==='entrenamiento').length;
+  const ant=bookings.filter(b=>b.tipo==='antropometria').length;
+  let body='';
+  if(tab==='turnos'){
+    // Cada turno (slot) es un evento en el calendario; al tocarlo se ve la lista de alumnos.
+    const evByDate={};
+    slots.forEach(s=>{
+      const sedeNom=(SEDES_BY_ID[s.sede_id]&&SEDES_BY_ID[s.sede_id].nombre)||'';
+      const taken=s.cupos - s.cupos_libres;
+      (evByDate[s.fecha]=evByDate[s.fecha]||[]).push({
+        tipo:s.tipo,
+        label:`${(s.hora||'').slice(0,5)} ${sedeNom} (${taken}/${s.cupos})`,
+        title:`${(s.hora||'').slice(0,5)} · ${sedeNom} · ${taken}/${s.cupos} cupos`,
+        onclick:`showSlotRoster('${s.id}')`
+      });
+    });
+    body = `<button class="btn naranja sm" style="margin-bottom:14px" onclick="openNewSlot()">➕ Nuevo turno</button>`
+      + monthCalendarHTML(adminCalYM, evByDate, 'adminCalNav')
+      + `<p style="font-size:13px;color:var(--gris)">Tocá un turno del calendario para ver los alumnos anotados y su contacto.</p>`;
+  } else if(tab==='alumnos'){
+    body = users.length? `<table class="tbl"><thead><tr><th>Nombre</th><th>Email</th><th>Teléfono</th><th>Turnos</th></tr></thead><tbody>`+
+      users.map(u=>`<tr><td>${esc(u.nombre||'—')}</td><td>${esc(u.email||'—')}</td><td>${esc(u.telefono||'—')}</td>
+        <td>${bookings.filter(b=>b.user_id===u.id).length}</td></tr>`).join('')+`</tbody></table>`
+      : '<div class="empty">Aún no hay alumnos registrados.</div>';
+  } else {
+    body = `<table class="tbl"><thead><tr><th>Fecha</th><th>Hora</th><th>Tipo</th><th>Sede</th><th>Ocupación</th></tr></thead><tbody>`+
+      slots.map(s=>{
+        const t=s.cupos - s.cupos_libres;
+        const sedeNom=(SEDES_BY_ID[s.sede_id]&&SEDES_BY_ID[s.sede_id].nombre)||'';
+        return `<tr><td>${weekdayName(s.fecha)} ${fmtDate(s.fecha)}</td><td>${(s.hora||'').slice(0,5)}</td>
+          <td><span class="tag ${s.tipo==='antropometria'?'ant':'ent'}">${s.tipo==='antropometria'?'Antrop.':'Entren.'}</span></td>
+          <td>${esc(sedeNom)}</td><td><b>${t}/${s.cupos}</b></td></tr>`;
+      }).join('')+`</tbody></table>`;
+  }
+  openOverlay(`
+    <button class="close-x" onclick="closeOverlay()">×</button>
+    <h2>Panel de Pilar 📊</h2>
+    <p class="sub">Resumen de turnos, alumnos y ocupación.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="n">${bookings.length}</div><div class="l">Turnos activos</div></div>
+      <div class="stat"><div class="n">${ent}</div><div class="l">Entrenamientos</div></div>
+      <div class="stat"><div class="n">${ant}</div><div class="l">Antropometrías</div></div>
+      <div class="stat"><div class="n">${users.length}</div><div class="l">Alumnos</div></div>
+    </div>
+    <div class="dash-tabs">
+      <button class="tab ${tab==='turnos'?'active':''}" onclick="renderAdmin('turnos')">📅 Calendario</button>
+      <button class="tab ${tab==='alumnos'?'active':''}" onclick="renderAdmin('alumnos')">👥 Alumnos</button>
+      <button class="tab ${tab==='ocupacion'?'active':''}" onclick="renderAdmin('ocupacion')">📊 Ocupación</button>
+    </div>
+    ${body}
+  `,true);
+}
+// Ficha de cada turno: alumnos anotados con su contacto.
+function showSlotRoster(slotId){
+  const slot=ADMIN.slots.find(s=>s.id===slotId);
+  const roster=ADMIN.res.filter(r=>r.slot_id===slotId);
+  const sedeNom=slot?((SEDES_BY_ID[slot.sede_id]&&SEDES_BY_ID[slot.sede_id].nombre)||''):'';
+  const fiches = roster.length? roster.map(r=>{
+    const p=r.profiles||{};
+    const tel=(p.telefono||'').trim();
+    const wa=tel?tel.replace(/[^\d]/g,''):'';
+    return `<div class="contact-fiche">
+      <div class="cf-name">${esc(p.nombre||'—')}</div>
+      <div class="cf-row">✉️ <a href="mailto:${esc(p.email||'')}">${esc(p.email||'—')}</a></div>
+      ${tel
+        ? `<div class="cf-row">📞 <a href="tel:${esc(tel)}">${esc(tel)}</a>${wa?` · <a href="https://wa.me/${wa}" target="_blank">WhatsApp</a>`:''}</div>`
+        : `<div class="cf-row" style="color:var(--gris)">📞 Sin teléfono cargado</div>`}
+    </div>`;
+  }).join('') : '<div class="empty">Nadie anotado todavía en este turno.</div>';
+  openOverlay(`
+    <button class="close-x" onclick="renderAdmin('turnos')">×</button>
+    <h2>${slot?(slot.tipo==='antropometria'?'Antropometría':'Entrenamiento'):'Turno'}</h2>
+    <p class="sub">${slot?`${weekdayName(slot.fecha)} ${fmtDateLong(slot.fecha)} · ${(slot.hora||'').slice(0,5)} hs · 📍 ${esc(sedeNom)}`:''}</p>
+    <div class="stat-row"><div class="stat"><div class="n">${roster.length}/${slot?slot.cupos:0}</div><div class="l">Cupos ocupados</div></div></div>
+    <h3 style="font-size:17px;margin:6px 0 10px">Alumnos anotados</h3>
+    ${fiches}
+    <button class="btn ghost sm" style="margin-top:14px" onclick="renderAdmin('turnos')">← Volver al calendario</button>
+  `,true);
+}
+// Formulario para crear un turno disponible.
+let nsTipo='entrenamiento';
+function openNewSlot(){
+  nsTipo='entrenamiento';
+  const sedeOpts=SEDES.map(s=>`<option value="${s.id}">${esc(s.nombre)} (${s.tipo})</option>`).join('');
+  openOverlay(`
+    <button class="close-x" onclick="renderAdmin('turnos')">×</button>
+    <h2>Nuevo turno</h2>
+    <p class="sub">Cargá un turno disponible para que los alumnos reserven.</p>
+    <label class="fld">Tipo</label>
+    <div class="seg">
+      <button type="button" class="on" id="nsEnt" onclick="nsSetTipo('entrenamiento')">🏊 Entrenamiento</button>
+      <button type="button" id="nsAnt" onclick="nsSetTipo('antropometria')">📏 Antropometría</button>
+    </div>
+    <label class="fld">Sede</label>
+    <select class="input" id="nsSede">${sedeOpts}</select>
+    <label class="fld">Fecha</label>
+    <input class="input" id="nsFecha" type="date" min="${todayStr()}">
+    <label class="fld">Hora</label>
+    <input class="input" id="nsHora" type="time">
+    <label class="fld">Duración (minutos)</label>
+    <input class="input" id="nsDur" type="number" value="75" min="5" step="5">
+    <label class="fld">Cupos</label>
+    <input class="input" id="nsCupos" type="number" value="8" min="1" step="1">
+    <div class="err" id="nsErr" style="display:none"></div>
+    <button class="btn block naranja" id="nsBtn" style="margin-top:16px" onclick="saveNewSlot()">Guardar turno</button>
+  `);
+}
+function nsSetTipo(t){
+  nsTipo=t;
+  document.getElementById('nsEnt').classList.toggle('on',t==='entrenamiento');
+  document.getElementById('nsAnt').classList.toggle('on',t==='antropometria');
+  document.getElementById('nsDur').value = t==='antropometria'?45:75;
+}
+async function saveNewSlot(){
+  const sede_id=document.getElementById('nsSede').value;
+  const fecha=document.getElementById('nsFecha').value;
+  const hora=document.getElementById('nsHora').value;
+  const dur=parseInt(document.getElementById('nsDur').value,10);
+  const cupos=parseInt(document.getElementById('nsCupos').value,10);
+  const err=document.getElementById('nsErr');
+  if(!fecha){ return showErr(err,'Elegí una fecha.'); }
+  if(!hora){ return showErr(err,'Elegí una hora.'); }
+  if(!(dur>0)){ return showErr(err,'Duración inválida.'); }
+  if(!(cupos>0)){ return showErr(err,'Cantidad de cupos inválida.'); }
+  const btn=document.getElementById('nsBtn'); btn.disabled=true; btn.textContent='Guardando...';
+  const { error } = await sb.from('slots').insert({ tipo:nsTipo, sede_id, fecha, hora, duracion_min:dur, cupos });
+  if(error){ btn.disabled=false; btn.textContent='Guardar turno'; return showErr(err,'No se pudo guardar. Verificá que tu cuenta sea admin.'); }
+  toast('Turno creado',true);
+  await loadSlots(); renderSlots();      // refresca la lista pública de turnos
+  await reloadAdminData(); renderAdmin('turnos');
+}
+
+/* ============ COMMENTS ============ */
+let starVal=5;
+document.getElementById('starInput').addEventListener('click',e=>{
+  if(e.target.dataset.v){ starVal=+e.target.dataset.v; paintStars(); }
+});
+function paintStars(){ document.querySelectorAll('#starInput span').forEach(s=>s.classList.toggle('on',+s.dataset.v<=starVal)); }
+async function submitComment(){
+  if(!CURRENT){ toast('Iniciá sesión para comentar'); openLogin(); return; }
+  const text=commentText.value.trim();
+  if(text.length<4){ toast('Escribí un comentario más largo'); return; }
+  // Guardamos el nombre del autor junto al comentario, para mostrarlo en la web.
+  const { error } = await sb.from('comentarios')
+    .insert({ user_id:CURRENT.id, nombre:CURRENT.name, estrellas:starVal, texto:text });
+  if(error){ toast('No se pudo publicar el comentario'); return; }
+  commentText.value=''; starVal=5; paintStars(); renderComments();
+  toast('¡Gracias por tu comentario!',true);
+}
+
+/* ============ BOOT ============ */
+async function boot(){
+  initContacts();
+  paintStars();
+  renderSedes(); renderSlots(); renderComments(); // pintan vacío y se rellenan al cargar
+  await loadSedes(); renderSedes();
+  await loadSlots(); renderSlots();
+  await renderComments();
+  await refreshCurrent(); renderNav();
+  // Si la sesión cambia (login, logout o confirmación por email), refrescamos la barra.
+  sb.auth.onAuthStateChange(async ()=>{ await refreshCurrent(); renderNav(); });
+}
+boot();
+document.addEventListener('click',e=>{ if(!e.target.closest('.cal-menu')) document.querySelectorAll('.cal-drop').forEach(d=>d.classList.remove('show')); });
+</script>
+</body>
+</html>
