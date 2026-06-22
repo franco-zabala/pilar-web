@@ -451,6 +451,9 @@ table.tbl td{padding:10px;border-bottom:1px solid rgba(12,44,66,.08)}
 
 <!-- Librería oficial de Supabase (base de datos + login). Se baja de un CDN, no hay que instalar nada. -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- Firebase (notificaciones push). Versión "compat" para usar sin compilador. -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-compat.js"></script>
 <script>
 /* ============ CONFIG ============
    👉 PASO IMPORTANTE: pegá acá los 2 datos de tu proyecto de Supabase.
@@ -471,6 +474,48 @@ const CFG = {
 const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 if(SUPABASE_URL.includes("TU-PROYECTO")){
   console.warn("⚠️ Falta configurar SUPABASE_URL y SUPABASE_ANON_KEY en index.html.");
+}
+
+/* ============ FIREBASE (notificaciones push) ============ */
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyDpXqvb9knEo7CFfhRSBZNiNLr8Wp2QI8o",
+  authDomain: "pily-pereyra-swim.firebaseapp.com",
+  projectId: "pily-pereyra-swim",
+  storageBucket: "pily-pereyra-swim.firebasestorage.app",
+  messagingSenderId: "744313533325",
+  appId: "1:744313533325:web:ef16fddf38dcdbd71ec3c4"
+};
+const VAPID_KEY = "BFsaGb8zKhhnsYQktGiJMkn1fig25zvwYyT3v0N_t6eqgid6xxz7ziUx4St4kd73cxIml0yWl9iKYCzxGKK71Gc";
+let fbMessaging = null;
+try {
+  if (window.firebase) {
+    firebase.initializeApp(FIREBASE_CONFIG);
+    fbMessaging = firebase.messaging();
+    // Notificación recibida con la web abierta → la mostramos como toast.
+    fbMessaging.onMessage((payload) => {
+      const n = (payload && payload.notification) || {};
+      toast('🔔 ' + (n.title || 'Notificación') + (n.body ? ' · ' + n.body : ''), true);
+    });
+  }
+} catch (e) { console.warn('Firebase no disponible:', e); }
+
+// Pide permiso, obtiene el token del dispositivo y lo guarda en la base.
+async function enableNotifications(){
+  if(!CURRENT){ toast('Iniciá sesión primero'); return; }
+  if(!fbMessaging || !('Notification' in window) || !('serviceWorker' in navigator)){
+    toast('Tu navegador no soporta notificaciones'); return;
+  }
+  try{
+    const perm = await Notification.requestPermission();
+    if(perm !== 'granted'){ toast('No se activaron las notificaciones'); return; }
+    const reg = await navigator.serviceWorker.register('/firebase-messaging-sw.js');
+    const token = await fbMessaging.getToken({ vapidKey: VAPID_KEY, serviceWorkerRegistration: reg });
+    if(!token){ toast('No se pudo activar (sin token)'); return; }
+    const { error } = await sb.from('push_tokens')
+      .upsert({ user_id: CURRENT.id, token }, { onConflict: 'token', ignoreDuplicates: true });
+    if(error){ toast('No se pudo guardar el permiso'); return; }
+    toast('¡Notificaciones activadas! 🔔', true);
+  }catch(e){ console.error(e); toast('No se pudieron activar las notificaciones'); }
 }
 
 /* ============ ESTADO EN MEMORIA ============
@@ -950,6 +995,7 @@ function renderDash(){
       <div class="stat"><div class="n">${ent}</div><div class="l">Entrenamientos</div></div>
       <div class="stat"><div class="n">${ant}</div><div class="l">Antropometrías</div></div>
     </div>
+    <div style="margin-bottom:14px"><button class="btn ghost sm" onclick="enableNotifications()">🔔 Activar recordatorios</button></div>
     ${monthCalendarHTML(userCalYM, evByDate, 'userCalNav')}
     <h3 style="font-size:18px;margin:18px 0 10px">Tus reservas</h3>
     <div id="dashList">${ upcoming.length? upcoming.map(b=>userBooking(b)).join('') :
@@ -1054,6 +1100,7 @@ function renderAdmin(tab){
       <div class="stat"><div class="n">${ant}</div><div class="l">Antropometrías</div></div>
       <div class="stat"><div class="n">${users.length}</div><div class="l">Alumnos</div></div>
     </div>
+    <div style="margin-bottom:12px"><button class="btn ghost sm" onclick="enableNotifications()">🔔 Activar avisos de reservas</button></div>
     <div class="dash-tabs">
       <button class="tab ${tab==='turnos'?'active':''}" onclick="renderAdmin('turnos')">📅 Calendario</button>
       <button class="tab ${tab==='alumnos'?'active':''}" onclick="renderAdmin('alumnos')">👥 Alumnos</button>
