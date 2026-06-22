@@ -866,6 +866,12 @@ async function confirmReserva(slotId){
       accion:'reservado', tipo:slot.tipo, fecha:slot.fecha, hora:slot.hora, duracion:slot.duracion,
       sede:slot.sede, id:slotId, nombre:CURRENT.name
     }}).catch(()=>{});
+    // Aviso push a Pilar (admin).
+    const tTxt = slot.tipo==='antropometria'?'Antropometría':'Entrenamiento';
+    sb.functions.invoke('send-push', { body:{
+      title:'Nueva reserva 🏊',
+      body:`${CURRENT.name} reservó ${tTxt} · ${weekdayName(slot.fecha)} ${fmtDate(slot.fecha)} ${slot.hora}hs`
+    }}).catch(()=>{});
   }
   closeOverlay(); await loadSlots(); renderSlots();
   toast('¡Turno reservado! Te enviamos un correo 📩',true);
@@ -1025,6 +1031,12 @@ async function cancelBooking(id){
     sb.functions.invoke('send-booking-email', { body:{
       accion:'cancelado', tipo:b.tipo, fecha:b.fecha, hora:b.hora, duracion:b.duracion,
       sede:b.sede, nombre:CURRENT.name
+    }}).catch(()=>{});
+    // Aviso push a Pilar (admin).
+    const tTxt = b.tipo==='antropometria'?'Antropometría':'Entrenamiento';
+    sb.functions.invoke('send-push', { body:{
+      title:'Turno cancelado ❌',
+      body:`${CURRENT.name} canceló ${tTxt} · ${weekdayName(b.fecha)} ${fmtDate(b.fecha)} ${b.hora}hs`
     }}).catch(()=>{});
   }
   await loadSlots(); renderSlots(); openDash(); toast('Turno cancelado · te enviamos un correo 📩');
